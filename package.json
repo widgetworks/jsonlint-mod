@@ -17,7 +17,7 @@
   "bugs": {
     "url": "http://github.com/zaach/jsonlint/issues"
   },
-  "main": "lib/jsonlint.js",
+  "main": "web/jsonlint.js",
   "bin": {
     "jsonlint": "lib/cli.js"
   },
@@ -34,7 +34,8 @@
     "uglify-js": "*"
   },
   "scripts": {
-    "test": "node test/all-tests.js"
+    "test": "node test/all-tests.js",
+    "bundle": "node scripts/bundle > web/jsonlint.js"
   },
   "homepage": "http://zaach.github.com/jsonlint/",
   "optionalDependencies": {}
