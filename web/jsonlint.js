@@ -359,9 +359,7 @@ if(typeof module === 'object' && module.exports) {
     module.exports = ___dougJSONParse;
 }
 /* Jison generated parser */
-
 var jsonlint = (function(){
-var dougJSONParse = typeof ___dougJSONParse === 'undefined' ? require('./doug-json-parse') : ___dougJSONParse;
 var parser = {trace: function trace() { },
 yy: {},
 symbols_: {"error":2,"JSONString":3,"STRING":4,"JSONNumber":5,"NUMBER":6,"JSONNullLiteral":7,"NULL":8,"JSONBooleanLiteral":9,"TRUE":10,"FALSE":11,"JSONText":12,"JSONValue":13,"EOF":14,"JSONObject":15,"JSONArray":16,"{":17,"}":18,"JSONMemberList":19,"JSONMember":20,":":21,",":22,"[":23,"]":24,"JSONElementList":25,"$accept":0,"$end":1},
@@ -428,15 +426,6 @@ parse: function parse(input) {
         recovering = 0,
         TERROR = 2,
         EOF = 1;
-
-    try {
-        dougJSONParse(input);
-    } catch(e) {
-        if(/Bad string|Duplicate key/.test(e.message)) {
-            var lineNumber = input.substring(0, e.at).split('\n').length;
-            throw SyntaxError(e.message + ' on line ' + lineNumber);
-        }
-    }
 
     //this.reductionCount = this.shiftCount = 0;
 
@@ -783,6 +772,25 @@ return lexer;})()
 parser.lexer = lexer;
 return parser;
 })();
+
+var origParse = jsonlint.parse;
+
+jsonlint.parse = function(input) {
+    var result = origParse.call(jsonlint, input);
+    var dougJSONParse = typeof ___dougJSONParse === 'undefined' ? require('./doug-json-parse') : ___dougJSONParse;
+    try {
+        dougJSONParse(input);
+    } catch(e) {
+        console.log(e.message);
+        if(/Duplicate key|Bad string/.test(e.message)) {
+            var lineNumber = input.substring(0, e.at).split('\n').length;
+            throw SyntaxError(e.message + ' on line ' + lineNumber);
+        }
+    }
+
+    return result;
+}
+
 if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
 exports.parser = jsonlint;
 exports.parse = function () { return jsonlint.parse.apply(jsonlint, arguments); }
