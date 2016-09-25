@@ -1,12 +1,17 @@
-JSON Lint
+JSON Lint [![npm version](https://badge.fury.io/js/jsonlint-mod.svg)](https://badge.fury.io/js/jsonlint-mod)
 =========
 
-A pure [JavaScript version](http://zaach.github.com/jsonlint/) of the service provided at [jsonlint.com](http://jsonlint.com).
+The fork is modified version of [jsonlint](http://zaach.github.com/jsonlint/) with the following features:
+- Handle hidden chars
+- Handle key duplicates
+- Web version exported as CJS module to use with Webpack and other bundlers
+
+A modified description below.
 
 ## Command line interface
 Install jsonlint with npm to use the command line interface:
 
-    npm install jsonlint -g
+    npm install jsonlint-mod -g
 
 Validate a file like so:
 
@@ -40,18 +45,16 @@ jsonlint will either report a syntax error with details or pretty print the sour
 
 ## Module interface
 
-I'm not sure why you wouldn't use the built in `JSON.parse` but you can use jsonlint from a CommonJS module:
+var jsonlint = require("jsonlint-mod");
 
-    var jsonlint = require("jsonlint");
-
-    jsonlint.parse('{"creative?": false}');
+jsonlint.parse('{"creative?": false}');
 
 It returns the parsed object or throws an `Error`.
 
 ## Vim Plugins
 
 * [Syntastic](http://www.vim.org/scripts/script.php?script_id=2736)
-* [sourcebeautify](http://www.vim.org/scripts/script.php?script_id=4079) 
+* [sourcebeautify](http://www.vim.org/scripts/script.php?script_id=4079)
 
 ## MIT License
 
