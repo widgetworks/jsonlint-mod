@@ -213,6 +213,16 @@ exports["test extra brace"] = function () {
   assert["throws"](function () {parser.parse(json)}, "should throw error");
 }
 
+exports["test hidden characters"] = function () {
+  var json = fs.readFileSync(__dirname + "/fails/35.json").toString();
+  assert["throws"](function () {parser.parse(json)}, "should throw error");
+}
+
+exports["test key duplicates"] = function () {
+  var json = fs.readFileSync(__dirname + "/fails/36.json").toString();
+  assert["throws"](function () {parser.parse(json)}, "should throw error");
+}
+
 exports["test pass-1"] = function () {
   var json = fs.readFileSync(__dirname + "/passes/1.json").toString();
   assert.doesNotThrow(function () {parser.parse(json)}, "should pass");
