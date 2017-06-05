@@ -35,7 +35,8 @@
   },
   "scripts": {
     "test": "node test/all-tests.js",
-    "bundle": "node scripts/bundle > web/jsonlint.js"
+    "bundle": "node scripts/bundle > web/jsonlint.js",
+    "prepublish": "npm run bundle"
   },
   "homepage": "http://jsonlint.com",
   "optionalDependencies": {}
