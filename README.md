@@ -1,7 +1,8 @@
 JSON Lint [![npm version](https://badge.fury.io/js/jsonlint-mod.svg)](https://badge.fury.io/js/jsonlint-mod)
 =========
 
-The fork is modified version of [jsonlint](http://zaach.github.com/jsonlint/) with the following features:
+The fork is a modified version of [jsonlint](http://zaach.github.com/jsonlint/) enhanced by the original Douglas Crockford's JSON parser which brought the following features:
+
 - Handle hidden chars
 - Handle key duplicates
 - Web version exported as CJS module to use with Webpack and other bundlers
