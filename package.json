@@ -8,7 +8,7 @@
     "lint",
     "jsonlint"
   ],
-  "version": "1.7.4",
+  "version": "1.7.5",
   "preferGlobal": true,
   "repository": {
     "type": "git",
@@ -25,8 +25,9 @@
     "node": ">= 0.6"
   },
   "dependencies": {
-    "nomnom": ">= 1.5.x",
-    "JSV": ">= 4.0.x"
+    "JSV": "^4.0.2",
+    "chalk": "^2.4.2",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "test": "*",
