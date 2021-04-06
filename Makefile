@@ -4,7 +4,7 @@ all: build test site
 build:
 	jison src/jsonlint.y src/jsonlint.l
 	mv jsonlint.js lib/jsonlint.js
-	node scripts/bundle.js | uglifyjs > web/jsonlint.js
+	node scripts/bundle.js | npx uglifyjs > web/jsonlint.js
 
 site:
 	cp web/jsonlint.js ../jsonlint-pages/jsonlint.js

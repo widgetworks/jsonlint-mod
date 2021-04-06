@@ -1,6 +1,6 @@
 {
   "author": "Zach Carter <zach@carter.name> (http://zaa.ch)",
-  "name": "jsonlint",
+  "name": "@wiwo/jsonlint-mod",
   "description": "Validate JSON",
   "keywords": [
     "json",
@@ -25,12 +25,12 @@
     "node": ">= 0.6"
   },
   "dependencies": {
-    "nomnom": ">= 1.5.x",
-    "JSV": ">= 4.0.x"
+    "JSV": ">= 4.0.x",
+    "nomnom": ">= 1.5.x"
   },
   "devDependencies": {
-    "test": "*",
     "jison": "*",
+    "test": "*",
     "uglify-js": "*"
   },
   "scripts": {
