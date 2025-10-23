@@ -27,7 +27,7 @@
   "dependencies": {
     "JSV": "^4.0.2",
     "chalk": "^2.4.2",
-    "underscore": "^1.9.1"
+    "underscore": "^1.13.7"
   },
   "devDependencies": {
     "test": "*",
